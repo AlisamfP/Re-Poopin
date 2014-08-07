@@ -1,10 +1,6 @@
 import tweepy
 import json
 
-# auth = tweepy.OAuthHandler('md9JnOCukpn2r2p46wRp1IcfH', 'Qw9OE2GddvjnALDU9XwIcOMK6Qo1x32zTlUfRuxjW5KI3DIKcU')
-# auth.set_access_token('115287081-FPXnA1fnjDGHGGIV3dRmUkhdl3xZFfLtTNQvgcpH', '9hbsWS0PLPz0LASoVFIXiWER1wMeAaETx07c7QQY3PH4s')
-
-
 # Authentication details. To  obtain these visit dev.twitter.com
 consumer_key = 'md9JnOCukpn2r2p46wRp1IcfH'
 consumer_secret = 'Qw9OE2GddvjnALDU9XwIcOMK6Qo1x32zTlUfRuxjW5KI3DIKcU'
@@ -36,4 +32,4 @@ if __name__ == '__main__':
     # In this example follow #programming tag
     # For more details refer to https://dev.twitter.com/docs/streaming-apis
     stream = tweepy.Stream(auth, l)
-    stream.filter(track=['poopin'])
+    stream.filter(track=['#poopin'])
