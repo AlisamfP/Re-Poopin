@@ -16,16 +16,12 @@ class StdOutListener(tweepy.StreamListener):
     def on_data(self, data):
         # Twitter returns data in JSON format - we need to decode it first
         decoded = json.loads(data)
-
-        # Also, we convert UTF-8 to ASCII ignoring all bad characters sent by users
-        print '@%s: %s' % (decoded['user']['screen_name'], decoded['text'].encode('ascii', 'ignore'))
         if (decoded['user']['screen_name'] != 'hashtagpoopin'):
             api = tweepy.API(auth)
             api.retweet(decoded['id'])
             return True
         else:
             return True
-
 
     def on_error(self, status):
         print status
@@ -35,6 +31,6 @@ if __name__ == '__main__':
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
 
-    print "Showing all new tweets for #poopin:"
+    print "Twitter Stream Listening for #poopin..."
     stream = tweepy.Stream(auth, l)
     stream.filter(track=['#poopin'])
