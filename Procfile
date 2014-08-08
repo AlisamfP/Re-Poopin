@@ -1,1 +1,1 @@
-worker: gunicorn retweet_poopin:app --log-file=-
+worker: python retweet_poopin:app --log-file=-
